@@ -15,7 +15,8 @@ class routeConsumer(WebsocketConsumer):
 		text_data_json = json.loads(text_data)
 		async_to_sync(self.channel_layer.group_send)('visc',{
 			'type':'voice_command',
-			'data':text_data_json}
+			'data':text_data_json,
+			}
 			)
 
 	def voice_command(self, event):
